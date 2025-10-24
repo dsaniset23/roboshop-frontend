@@ -1,0 +1,12 @@
+name: frontend CI pipeline dev branch
+on:
+  push:
+    branches:
+      - "*"
+      - "!main"
+run-name: ${{ github.name }}-${{ github.event.head_commit.message }}
+jobs:
+  call_workflow_with_inputs:
+    uses: dsaniset23/roboshop-actions/.github/workflows/ci-dev-branch.yml@main
+    with:
+      componentName: frontend
